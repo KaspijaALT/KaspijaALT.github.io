@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kaspars Kusiņš | Cybersecurity Portfolio</title>
+  <title>KK</title>
   <meta name="description" content="Cybersecurity enthusiast showcasing latest CVEs and security insights">
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -53,11 +54,134 @@
       100% { transform: translateY(0px); }
     }
 
-    .container {
+    /* Navigation Styles */
+    .main-nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      margin: -2rem -1rem 2rem -1rem;
+      padding: 0 1rem;
+    }
+
+    .nav-container {
       max-width: 1200px;
       margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-logo:hover {
+      color: var(--primary-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
       width: 100%;
-      padding: 0 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      
+      .nav-links {
+        margin-top: 1rem;
+        width: 100%;
+        justify-content: space-around;
+      }
+      
+      .nav-link {
+        font-size: 0.9rem;
+      }
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    
+    .hero-section {
+      display: flex;
+      gap: 3rem;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+    }
+    
+    .hero-content {
+      flex: 1;
+      padding-top: 1rem;
+    }
+    
+    .ide-container {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .intro-text {
+      margin-top: 1.5rem;
+      max-width: 600px;
+      text-align: left;
+    }
+    
+    .intro-text p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      color: var(--dark);
+    }
+    
+    @media (max-width: 1024px) {
+      .hero-section {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .hero-content, .ide-container {
+        width: 100%;
+        max-width: 100%;
+      }
     }
 
     header {
@@ -213,6 +337,150 @@
       padding-bottom: 0.75rem;
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
+    /* IDE Window Styles */
+    .ide-window {
+      background: #1e1e1e;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      margin: 2rem 0;
+      font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .ide-titlebar {
+      background: #252526;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #1e1e1e;
+      user-select: none;
+    }
+    
+    .window-controls {
+      display: flex;
+      gap: 8px;
+      margin-right: 16px;
+    }
+    
+    .window-control {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+    }
+    
+    .window-control:hover {
+      transform: scale(1.1);
+    }
+    
+    .control-close { background: #ff5f56; }
+    .control-minimize { background: #ffbd2e; }
+    .control-maximize { background: #27c93f; }
+    
+    .file-path {
+      color: #858585;
+      font-size: 0.8em;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    
+    .code-container {
+      display: flex;
+      background: #1e1e1e;
+      color: #d4d4d4;
+      font-size: 14px;
+      line-height: 1.5;
+      overflow: hidden;
+    }
+    
+    .line-numbers {
+      background: #1e1e1e;
+      color: #858585;
+      padding: 1rem 0.5rem 1rem 1rem;
+      text-align: right;
+      user-select: none;
+      border-right: 1px solid #404040;
+      min-width: 40px;
+    }
+    
+    .line-number {
+      padding: 0 8px 0 0;
+      min-width: 2em;
+      display: block;
+    }
+    
+    .code-lines {
+      flex: 1;
+      padding: 1rem 1rem 1rem 0.5rem;
+      overflow-x: auto;
+      tab-size: 2;
+      position: relative;
+    }
+    
+    .code-line {
+      white-space: pre;
+      display: block;
+      min-height: 1.2em;
+      padding: 0 1rem 0 0.5rem;
+      margin: 0;
+      position: relative;
+      font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+    }
+    
+    .code-line .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.2em;
+      background: #569cd6;
+      margin-left: 2px;
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    
+    .code-line.active::after {
+      content: '|';
+      position: absolute;
+      left: 0.5rem;
+      color: #569cd6;
+      animation: blink 1s step-end infinite;
+    }
+    
+    @keyframes blink {
+      from, to { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    
+    .code-keyword {
+      color: #569cd6;
+      font-weight: normal;
+    }
+    
+    .code-string {
+      color: #ce9178;
+    }
+    
+    .code-property {
+      color: #9cdcfe;
+    }
+    
+    .code-comment {
+      color: #6a9955;
+      font-style: normal;
+    }
+    
+    .code-punctuation {
+      color: #d4d4d4;
+    }
+    
+    .code-number {
+      color: #b5cea8;
+    }
+    
+    /* Add Fira Code font for better code display */
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
+    
     .cve-id {
       font-weight: 700;
       color: var(--primary);
@@ -610,22 +878,72 @@
 </head>
 
 <body>
-  <div class="container">
-    <header>
-      <h1>Kaspars Kusiņš</h1>
-      <h2>Cybersecurity Enthusiast & Developer</h2>
-      <div style="margin-top: 1.5rem;">
-        <button id="refreshButton" class="btn" title="Refresh CVE Data">
-          <i class="fas fa-sync-alt"></i>
-          Refresh CVEs
-        </button>
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="#" class="nav-logo"></a>
+      <div class="nav-links">
+        <a href="#blog" class="nav-link">Blog</a>
+        <a href="#about" class="nav-link">About Me</a>
+        <a href="#projects" class="nav-link">Projects</a>
       </div>
-    </header>
+    </div>
+  </nav>
 
-    <section class="intro">
-      <p>Welcome to my secure digital portfolio. This platform showcases the latest cybersecurity vulnerabilities (CVEs) in real-time, powered by the <a href="https://nvd.nist.gov/" target="_blank">NIST National Vulnerability Database</a>.</p>
-      <p style="margin-top: 1rem;">This site is built with modern web technologies and protected with <strong>HTTPS encryption</strong> and a valid <strong>SSL certificate</strong>, ensuring secure data transmission.</p>
-    </section>
+  <div class="container">
+    <div class="hero-section">
+      <div class="hero-content">
+        <header>
+          <h1>Kaspars Kusiņš <a href="https://www.linkedin.com/in/kasparskusins/" target="_blank" rel="noopener noreferrer" class="social-link" title="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a></h1>
+          <div class="intro-text">
+            <p>Welcome to my secure digital portfolio. This platform showcases the latest cybersecurity vulnerabilities (CVEs) in real-time, powered by the <a href="https://nvd.nist.gov/" target="_blank">NIST National Vulnerability Database</a>.</p>
+            <p>This site is built with modern web technologies and protected with <strong>HTTPS encryption</strong> and a valid <strong>SSL certificate</strong>, ensuring secure data transmission.</p>
+          </div>
+          <div style="margin-top: 2rem;">
+            <button id="refreshButton" class="btn" title="Refresh CVE Data">
+              <i class="fas fa-sync-alt"></i>
+              Refresh CVEs
+            </button>
+          </div>
+        </header>
+      </div>
+      
+      <div class="ide-container">
+        <div class="ide-window">
+          <div class="ide-titlebar">
+            <div class="window-controls">
+              <div class="window-control control-close"></div>
+              <div class="window-control control-minimize"></div>
+              <div class="window-control control-maximize"></div>
+            </div>
+            <div class="file-path">about-me.js</div>
+          </div>
+          <div class="code-container">
+            <div class="line-numbers">
+              <span class="line-number">1</span>
+              <span class="line-number">2</span>
+              <span class="line-number">3</span>
+              <span class="line-number">4</span>
+              <span class="line-number">5</span>
+              <span class="line-number">6</span>
+              <span class="line-number">7</span>
+              <span class="line-number">8</span>
+            </div>
+            <div class="code-lines">
+              <div class="code-line"><span class="code-comment">// About me</span></div>
+              <div class="code-line"><span class="code-keyword">const</span> kaspars <span class="code-punctuation">=</span> <span class="code-punctuation">{</span></div>
+              <div class="code-line">  <span class="code-property">name</span><span class="code-punctuation">:</span> <span class="code-string">'Kaspars Kusiņš'</span><span class="code-punctuation">,</span></div>
+              <div class="code-line">  <span class="code-property">title</span><span class="code-punctuation">:</span> <span class="code-string">'Cybersecurity Professional'</span><span class="code-punctuation">,</span></div>
+              <div class="code-line">  <span class="code-property">location</span><span class="code-punctuation">: [</span><span class="code-string">'Riga, LV'</span><span class="code-punctuation">,</span> <span class="code-string">'Tallinn, EE'</span><span class="code-punctuation">],</span></div>
+              <div class="code-line">  <span class="code-property">background</span><span class="code-punctuation">:</span> <span class="code-string">'Full Stack Development'</span><span class="code-punctuation">,</span></div>
+              <div class="code-line">  <span class="code-property">focus</span><span class="code-punctuation">:</span> <span class="code-string">'Cybersecurity Research & Development'</span><span class="code-punctuation">,</span></div>
+              <div class="code-line">  <span class="code-property">specialty</span><span class="code-punctuation">:</span> <span class="code-string">'Bridging development and security'</span></div>
+              <div class="code-line"><span class="code-punctuation">};</span><span class="cursor"></span></div>
+            </div>
+          </div>
+        </div>
+        <p class="tagline">Transforming developer insights into <span class="highlight">cybersecurity solutions</span> through a unique blend of technical expertise and security-first thinking.</p>
+      </div>
+    </div>
 
     <div class="cve-section">
       <h3><i class="fas fa-shield-alt"></i> Latest CVEs</h3>
